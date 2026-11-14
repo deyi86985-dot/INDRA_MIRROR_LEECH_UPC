@@ -1,3 +1,5 @@
+import os
+os.makedirs("/data/app", exist_ok=True)
 from pyrogram import Client, enums
 from pyrogram.types import LinkPreviewOptions
 from asyncio import Lock
@@ -25,7 +27,7 @@ class TgClient:
             Config.TELEGRAM_HASH,
             proxy=Config.TG_PROXY or None,
             bot_token=Config.BOT_TOKEN,
-            workdir="/data",
+            workdir="/data/app",
             parse_mode=enums.ParseMode.HTML,
             max_concurrent_transmissions=10,
             max_message_cache_size=15000,
